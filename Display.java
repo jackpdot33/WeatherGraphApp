@@ -1,3 +1,5 @@
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -24,7 +26,7 @@ import javax.swing.JPanel;
 public class Display{
 	
 	
-	private ImageIcon image1;
+	private static ImageIcon image1;
 	private JLabel label;
 	private String calendarString;
 	private String fileName;
@@ -69,7 +71,7 @@ public class Display{
 		
 		calendarString = tempString.substring(3);
 		System.out.println(calendarString); 
-		fileName = "C:\\Users\\jackpdot\\Pictures\\WeatherGraphs\\weather_graph" + calendarString + ".jpg";
+		fileName = "C:\\Users\\jackp\\OneDrive\\Pictures\\WeatherGraphs\\weather_graph" + calendarString + ".jpg";
 		
 		//"C:\\Users\\jackpdot\\Pictures\\borrowed_image.jpg"
 		
@@ -119,61 +121,73 @@ public class Display{
 		
 		button1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				thirtyOneDays("Jan");
 			}
 		});
 		button2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				twentyEightDays("Feb");
 			}
 		});
 		button3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				thirtyOneDays("Mar");
 			}
 		});
 		button4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				thirtyDays("Apr");
 			}
 		});
 		button5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				thirtyOneDays("May");
 			}
 		});
 		button6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				thirtyDays("Jun");
 			}
 		});
 		button7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				thirtyOneDays("Jul");
 			}
 		});
 		button8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				thirtyOneDays("Aug");
 			}
 		});
 		button9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				thirtyDays("Sep");
 			}
 		});
 		button10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				thirtyOneDays("Oct");
 			}
 		});
 		button11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				thirtyDays("Nov");
 			}
 		});
 		button12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				thirtyOneDays("Dec");
 			}
 		});
@@ -213,6 +227,7 @@ public class Display{
 		JButton button26 = new JButton("26");
 		JButton button27 = new JButton("27");
 		JButton button28 = new JButton("28");
+		JButton backButton = new JButton("Back");
 		
 		panel.add(button1);
 		panel.add(button2);
@@ -242,9 +257,10 @@ public class Display{
 		panel.add(button26);
 		panel.add(button27);
 		panel.add(button28);
+		panel.add(backButton);
 		
 		frame.add(panel);
-		frame.setSize(600, 600);
+		frame.setSize(800, 600);
 		frame.setVisible(true);
 		
 		button1.addActionListener(new ActionListener() {
@@ -387,6 +403,12 @@ public class Display{
 				buttonListener(month, "28");
 			}
 		});
+		backButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				mainPage();
+			}
+		});
 	}
 	
 	public void thirtyDays(String month) {
@@ -423,6 +445,7 @@ public class Display{
 		JButton button28 = new JButton("28");
 		JButton button29 = new JButton("29");
 		JButton button30 = new JButton("30");
+		JButton backButton = new JButton("Back");
 		
 		panel.add(button1);
 		panel.add(button2);
@@ -454,6 +477,7 @@ public class Display{
 		panel.add(button28);
 		panel.add(button29);
 		panel.add(button30);
+		panel.add(backButton);
 		
 		frame.add(panel);
 		frame.setSize(600, 600);
@@ -609,6 +633,12 @@ public class Display{
 				buttonListener(month, "30");
 			}
 		});
+		backButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				mainPage();
+			}
+		});
 	}
 	
 	public void thirtyOneDays(String month) {
@@ -646,6 +676,7 @@ public class Display{
 		JButton button29 = new JButton("29");
 		JButton button30 = new JButton("30");
 		JButton button31 = new JButton("31");
+		JButton backButton = new JButton("Back");
 		
 		panel.add(button1);
 		panel.add(button2);
@@ -678,6 +709,7 @@ public class Display{
 		panel.add(button29);
 		panel.add(button30);
 		panel.add(button31);
+		panel.add(backButton);
 		
 		frame.add(panel);
 		frame.setSize(600, 600);
@@ -838,27 +870,225 @@ public class Display{
 				buttonListener(month, "31");
 			}
 		});
+		backButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				mainPage();
+			}
+		});
 	}
 	
 	public void buttonListener(String month, String day) {
 		show(month, day);
 	}
 	
-	public void show(String month, String day) {
-		image1 = new ImageIcon("C:\\Users\\jackpdot\\Pictures\\WeatherGraphs\\weather_graph" + month + day + ".jpg");
+	public static void show(String month, String day) {
+		image1 = new ImageIcon("C:\\Users\\jackp\\OneDrive\\Pictures\\WeatherGraphs\\weather_graph" + month + day + ".jpg");
 		
 		Date d = new Date();
 		System.out.println(d);
 		
-		JButton button1 = new JButton(d + "");
+		JButton button1 = new JButton("Back");
+		JButton button2 = new JButton("Next");
 		JFrame frame = new JFrame("Weather Graph");
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridBagLayout());
+		
+		
+		
 		JLabel weatherGraph = new JLabel(image1);
-		frame.add(weatherGraph);
+		panel.add(button1);
+		panel.add(weatherGraph);
+		panel.add(button2);
+		frame.add(panel);
 		frame.setSize(800, 600);
 		//frame.add(button1);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		frame.pack();
+		
+		int monthNum = convertMonthStringToNum(month);
+		
+		button1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getPreviousDay(monthNum, day);
+			}
+		});
+		button2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getNextDay(monthNum, day);
+			}
+		});
+	}
+	
+	public static int convertMonthStringToNum(String month) {
+		int monthNum = 0;
+		switch (month) {
+		case "Jan":
+			monthNum = 1;
+			break;
+		case "Feb":
+			monthNum = 2;
+			break;
+		case "Mar":
+			monthNum = 3;
+			break;
+		case "Apr":
+			monthNum = 4;
+			break;
+		case "May":
+			monthNum = 5;
+			break;
+		case "Jun":
+			monthNum = 6;
+			break;
+		case "Jul":
+			monthNum = 7;
+			break;
+		case "Aug":
+			monthNum = 8;
+			break;
+		case "Sep":
+			monthNum = 9;
+			break;
+		case "Oct":
+			monthNum = 10;
+			break;
+		case "Nov":
+			monthNum = 11;
+			break;
+		case "Dec":
+			monthNum = 12;
+			break;
+		}
+		
+		return monthNum;
+	}
+	
+	public static String convertMonthNumToString(String monthNum) {
+		String month = "";
+		switch (monthNum) {
+		case "1":
+			month = "Jan";
+			break;
+		case "2":
+			month = "Feb";
+			break;
+		case "3":
+			month = "Mar";
+			break;
+		case "4":
+			month = "Apr";
+			break;
+		case "5":
+			month = "May";
+			break;
+		case "6":
+			month = "Jun";
+			break;
+		case "7":
+			month = "Jul";
+			break;
+		case "8":
+			month = "Aug";
+			break;
+		case "9":
+			month = "Sep";
+			break;
+		case "10":
+			month = "Oct";
+			break;
+		case "11":
+			month = "Nov";
+			break;
+		case "12":
+			month = "Dec";
+			break;
+		}
+		
+		return month;
+	}
+	
+	public static void getPreviousDay(int monthNum, String day) {
+		String newMonth = "";
+		String newDay = "";
+		int dayNum = Integer.parseInt(day);
+		if(monthNum == 1 || monthNum == 3 || monthNum == 5 || monthNum == 7 || monthNum == 8 || monthNum == 10 || monthNum == 12) {
+			if(dayNum == 1) {
+				monthNum--;
+				if(monthNum == 7) {
+					newDay = "31";
+					newMonth = "7";
+				}
+				else {
+					newDay = "30";
+					newMonth = monthNum + "";
+				}
+			}
+			else if(dayNum < 10){
+				newDay = "0" + dayNum--;
+				newMonth = monthNum + "";
+			}
+			else {
+				newDay = dayNum-- + "";
+				newMonth = monthNum + "";
+			}
+		}
+		else if(monthNum == 4 || monthNum == 6 || monthNum == 9 || monthNum == 11) {
+			if(dayNum == 1) {
+				newDay = "31";
+				newMonth = (monthNum-1) + "";
+			}
+			else if(dayNum < 10){
+				newDay = "0" + (dayNum-1);
+				newMonth = monthNum + "";
+			}
+			else {
+				newDay = (dayNum-1) + "";
+				newMonth = monthNum + "";
+			}
+		}
+		else {
+			if(dayNum == 1) {
+				newDay = "31";
+				newMonth = (monthNum-1) + "";
+			}
+			else if(dayNum == 29){ //Leap year day
+				newDay = "28";
+				newMonth = monthNum + "";
+			}
+			else if(dayNum < 10){
+				newDay = "0" + (dayNum-1);
+				newMonth = monthNum + "";
+			}
+			else {
+				newDay = (dayNum-1) + "";
+				newMonth = monthNum + "";
+			}
+		}
+		
+		
+		show(convertMonthNumToString(newMonth), newDay);
+	}
+	
+	public static void getNextDay(int monthNum, String day) {
+		String newMonth = "";
+		String newDay = "";
+		int dayNum = Integer.parseInt(day);
+		if(dayNum == 31) {
+			newDay = "01";
+			newMonth = (monthNum+1) + "";
+		}
+		else if(dayNum < 9) {
+			newDay = "0" + (dayNum+1);
+			newMonth = monthNum + "";
+		}
+		else {
+			newDay = (dayNum+1) + "";
+			newMonth = monthNum + "";
+		}
+		
+		show(convertMonthNumToString(newMonth), newDay);
 	}
 	
 
